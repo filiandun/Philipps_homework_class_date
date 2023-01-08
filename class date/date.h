@@ -31,6 +31,8 @@ public:
 	Date& operator+=(const Date& d);
 	Date& operator-=(const Date& d);
 
+	Date& operator()(unsigned short int day, unsigned short int month, unsigned short int year);
+
 	friend std::ostream& operator<<(std::ostream& output, const Date&d);
 };
 

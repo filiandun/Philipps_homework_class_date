@@ -1,8 +1,6 @@
 #include "date.h"
 
-Date::Date()
-{
-}
+Date::Date() {}
 
 Date::Date(unsigned short int day, unsigned short int month, unsigned short int year)
 {
@@ -22,13 +20,13 @@ Date::~Date() {}
 
 
 
+
 Date& Date::operator++()
 {
 	++this->day;
 
 	return *this;
 }
-
 
 Date& Date::operator--()
 {
@@ -37,7 +35,6 @@ Date& Date::operator--()
 	return *this;
 }
 
-
 Date Date::operator++(int)
 {
 	Date previous_date = *this;
@@ -45,7 +42,6 @@ Date Date::operator++(int)
 
 	return previous_date;
 }
-
 
 Date Date::operator--(int)
 {
@@ -63,18 +59,15 @@ bool Date::operator!=(const Date& d) const
 	return (this->year * 365 + this->month * 30 + this->day) != (d.year * 365 + d.month * 30 + d.day);
 }
 
-
 bool Date::operator==(const Date& d) const
 {
 	return (this->year * 365 + this->month * 30 + this->day) == (d.year * 365 + d.month * 30 + d.day);;
 }
 
-
 bool Date::operator>(const Date& d) const
 {
 	return (this->year * 365 + this->month * 30 + this->day) > (d.year * 365 + d.month * 30 + d.day);
 }
-
 
 bool Date::operator<(const Date& d) const
 {
@@ -93,7 +86,6 @@ Date& Date::operator=(const Date& d)
 	return *this;
 }
 
-
 Date& Date::operator+=(const Date& d)
 {
 	this->day += d.day;
@@ -103,12 +95,20 @@ Date& Date::operator+=(const Date& d)
 	return *this;
 }
 
-
 Date& Date::operator-=(const Date& d)
 {
 	this->day -= d.day;
 	this->month -= d.month;
 	this->year -= d.year;
+
+	return *this;
+}
+
+Date& Date::operator()(unsigned short int day, unsigned short int month, unsigned short int year)
+{
+	this->day = day;
+	this->month = month;
+	this->year = year;
 
 	return *this;
 }
